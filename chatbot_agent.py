@@ -40,5 +40,5 @@ async def chatbot_agent(prompt: Prompt):
 
     return {  "reply": groq_reply, "coachReply": coach_message}
 if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("chatbot_agent:app", host="0.0.0.0", port=8003)
+    import uvicorn, os
+    uvicorn.run("chatbot_agent:app", host="0.0.0.0", port=int(os.environ.get("PORT", 8003)))
