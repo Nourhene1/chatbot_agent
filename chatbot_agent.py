@@ -26,7 +26,7 @@ async def chatbot_agent(prompt: Prompt):
 
     if should_call_coach:
         try:
-            res = requests.post("https://coach-agent-4d6j.onrender.com/agent/chat", json={"prompt": user_input})
+            res = requests.post("https://coach-agent.onrender.com/agent/chat", json={"prompt": user_input})
             coach_message = res.json().get("reply", "")
             print("💬 Motivation CoachAgent :\n", coach_message)
         except Exception as e:
