@@ -26,7 +26,7 @@ async def chatbot_agent(prompt: Prompt):
 
     if should_call_coach:
         try:
-            res = requests.post("https://coach-agent.onrender.com/agent/chat", json={"prompt": user_input})
+            res = requests.post("https://coach-agent-24z5.onrender.com/agent/chat", json={"prompt": user_input})
             coach_message = res.json().get("reply", "")
             print("💬 Motivation CoachAgent :\n", coach_message)
         except Exception as e:
@@ -40,5 +40,5 @@ async def chatbot_agent(prompt: Prompt):
 
     return {  "reply": groq_reply, "coachReply": coach_message}
 if __name__ == "__main__":
-    import uvicorn, os
-    uvicorn.run("chatbot_agent:app", host="0.0.0.0", port=int(os.environ.get("PORT", 8003)))
+    import uvicorn
+    uvicorn.run("chatbot_agent:app", host="0.0.0.0", port=8003)

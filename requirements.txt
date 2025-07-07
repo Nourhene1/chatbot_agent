@@ -1,5 +1,3 @@
 fastapi
 uagents
 httpx
-python-dotenv
-
